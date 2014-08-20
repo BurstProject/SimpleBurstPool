@@ -64,6 +64,7 @@ class WorkPayor extends Actor with ActorLogging {
     catch {
       case e: Exception => log.error("Payout error: " + e.toString())
     }
+    Config.init
   }
   
   def sendPayment(passphrase: String, target: String, amount: Long) {
