@@ -1,0 +1,34 @@
+<html>
+<body>
+Simple Burst Pool<br />
+<br />
+<br />
+Register payout address:<br />
+<form method="post" action="/register">
+<input type="text" name="payoutAddress">
+<input type="submit" value="submit" />
+</form>
+<br />
+<br />
+<a href="pool/getMiningInfo">Network State</a><br />
+<a href="shares">Current share counts</a><br />
+<br />
+<br />
+Specs:<br />
+Proportional payouts(pool hopping really isn't an issue here)<br />
+2% fee<br />
+Payout occurs instantly after a block is found<br />
+<br />
+Usage:<br />
+Paste your BURST- address into the box at the top to receive a generate address.<br />
+Generate plots for that address, and use pocminer_pool to mine with them<br />
+windows: java -cp pocminer_pool.jar;lib/*;lib/akka/*;lib/jetty/* pocminer_pool.POCMiner mine http://127.0.0.1:8125 http://thispoolsip<br />
+linux: java -cp pocminer_pool.jar:lib/*:lib/akka/*:lib/jetty/* pocminer_pool.POCMiner mine http://127.0.0.1:8125 http://thispoolsip<br />
+Local wallet does not have to be running, but if it is pocminer_pool will solo mine with plots it has passphrases for<br />
+<br />
+Temp bans:<br />
+Due to verification of shares being computationally expensive, the pool will temp ban ips that submit bad results multiple times<br />
+Bans only last 10 minutes<br />
+Multiple occurances of incorrect work, or duplicate shares in a short period of time will trigger temp bans<br />
+</body>
+</html>
