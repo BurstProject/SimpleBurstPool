@@ -83,7 +83,7 @@ object Db {
         val block = from(PoolDb.blocks)(b =>
           select(b)
           orderBy(b.height desc)
-        ).single
+        ).page(0, 1).single
         lastBlock = block.height 
       }
     }
